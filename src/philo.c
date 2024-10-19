@@ -6,17 +6,11 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:35:02 by gasroman          #+#    #+#             */
-/*   Updated: 2024/09/07 04:33:32 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/19 19:29:38 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/philo.h"
-
-//	if para mirar la cantidad de argumentos
-//	parsing = todos los valores sean ints positivos
-//	preparar la simulacion, creat mutex, asignar variables	
-//	crear threads
-//
 
 int	init_program(t_program *program)
 {
@@ -66,15 +60,6 @@ int	prep_philos(t_program *program)
 	return (SUCCESS);
 }
 
-int	print_error(char *str, int type)
-{
-	int	tmp;
-
-	tmp = (type == 1) && printf("Philo: %s\n", str);
-	tmp = (type == 2) && printf("Philo: %s\n", str);
-	return (-1);
-}
-
 int	main(int ac, char **av)
 {
 	t_program	program;
@@ -84,6 +69,6 @@ int	main(int ac, char **av)
 	ft_bzero(&program, sizeof(program));
 	if (parse(ac, av, &program) == -1)
 		return (print_error(INV_ARGS, 2));
-	init_program(program);
+	init_program(&program);
 	return (0);
 }

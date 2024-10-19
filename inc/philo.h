@@ -6,7 +6,7 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:34:39 by gasroman          #+#    #+#             */
-/*   Updated: 2024/09/07 04:33:29 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/19 18:43:37 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,6 @@ typedef struct s_program
 	size_t			t_eat;
 	size_t			t_sleep;
 	size_t			n_eat;
-
 	pthread_mutex_t	act_flag;
 }	t_program;
 
@@ -62,10 +61,14 @@ int		print_error(char *str, int type);
 /***********parse************/
 int		parse(int ac, char **av, t_program *program);
 
-/***********utils************/
+/*******program_utils********/
 size_t	ft_strlen(const char *s);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
+
+/*******print_error********/
+int		print_error(char *str, int type);
+
 #endif

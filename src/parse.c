@@ -65,7 +65,7 @@ static int	int_check(int ac, char **av)
 	return (SUCCESS);
 }
 
-int	parse(int ac, char **av, t_program *program)
+int	parse(int ac, char **av, t_simulation *sim)
 {
 	int	*data;
 	int	i;
@@ -78,13 +78,13 @@ int	parse(int ac, char **av, t_program *program)
 	i = -1;
 	while (++i < ac)
 		data[i] = ft_atoi(av[i + 1]);
-	program->n_philo = data[0];
-	program->t_death = data[1];
-	program->t_eat = data[2];
-	program->t_sleep = data[3];
-	program->n_eat = -1;
+	sim->n_philo = data[0];
+	sim->t_death = data[1];
+	sim->t_eat = data[2];
+	sim->t_sleep = data[3];
+	sim->n_eat = -1;
 	if (ac == 6)
-		program->n_eat = data[4];
+		sim->n_eat = data[4];
 	free(data);
 	return (SUCCESS);
 }

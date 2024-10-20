@@ -23,17 +23,16 @@ unsigned int	get_current_time(void)
 }
 void	_sleep(t_philo *philo)
 {
-
+	print_action(philo, SLEEP, ACT_SLEEP);
 }
 void	_think(t_philo *philo)
 {
-
+	print_action(philo, THINK, ACT_THINK);
 }
 void	_eat(t_philo *philo)
 {
 
 }
-
 void	*routine(void *data)
 {
 	t_philo  *philo;
@@ -41,5 +40,16 @@ void	*routine(void *data)
 	philo = data;
 	pthread_mutex_lock(&philo->program->act_flag);
 	pthread_mutex_unlock(&philo->program->act_flag);
-	if ()
+	if (chech_death(philo->program) && philo->t_eaten != philo->program->n_eat)
+		usleep((philo->program->t_eat -1) * 1000);
+	while (check_death(philo->program) && philo->t_eaten != philo->program->n_eat)
+	{
+		_eat(philo);
+		if (philo->t_eaten  != philo->program->n_eat)
+		{
+			_sleep(philo);
+			_think(philo);
+		}
+	}
+	retun (0);
 }

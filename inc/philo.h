@@ -30,11 +30,11 @@
 # define WRONG_ARGS	"Invalid number of arguments"
 # define INV_ARGS	"Invalid arguments"
 
-# define ACT_FORK "[%u] %d has taken a fork%s\n"
-# define ACT_EAT "\x1B[32m[%u] %d is eating%s\n"
-# define ACT_SLEEP "\x1B[36m[%u] %d is sleeping%s\n"
-# define ACT_THINK "\x1B[33m[%u] %d is thinking%s\n"
-# define ACT_DIE "\x1B[31m[%u] %d died%s\n"
+# define ACT_FORK	"[%u] %d has taken a fork%s\n"
+# define ACT_EAT	"\x1B[32m[%u] %d is eating%s\n"
+# define ACT_SLEEP	"\x1B[36m[%u] %d is sleeping%s\n"
+# define ACT_THINK	"\x1B[33m[%u] %d is thinking%s\n"
+# define ACT_DIE	"\x1B[31m[%u] %d died%s\n"
 
 enum
 {

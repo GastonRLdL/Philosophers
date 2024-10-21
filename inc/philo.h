@@ -69,11 +69,12 @@ typedef struct s_simulation
 	size_t			t_death;
 	size_t			t_eat;
 	size_t			t_sleep;
-	size_t			n_meals;
+	int				n_meals;
 }	t_simulation;
 
 /***********philo************/
 int				print_error(char *str, int type);
+int				init_simulation(t_simulation *sim);
 
 /***********parse************/
 int				parse(int ac, char **av, t_simulation *sim);
@@ -85,14 +86,17 @@ int				ft_isdigit(int c);
 int				ft_atoi(const char *str);
 void			ft_bzero(void *s, size_t n);
 
-/*******program_utils********/
+/*******simulation_utils********/
 unsigned int	get_current_time(void);
 void			*routine(void *data);
 void			ft_sleep(t_philo *philo);
 void			ft_think(t_philo *philo);
 void			ft_eat(t_philo *philo);
 
-/*******print_error********/
+/*******general_utils********/
 int				print_error(char *str, int type);
+void			print_action(t_philo *philo, int flag, char *action);
+unsigned int	get_sim_time(t_simulation *sim);
+int				check_death(t_simulation *sim);
 
 #endif

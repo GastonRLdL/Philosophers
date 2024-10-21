@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printer.c                                          :+:      :+:    :+:   */
+/*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 18:41:53 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/19 19:29:37 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/10/21 17:40:20 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	print_error(char *str, int type)
 void	print_action(t_philo *philo, int flag, char *action)
 {
 	pthread_mutex_lock(&philo->sim->action_flag);
-	if (comprove_death(philo->sim))
+	if (check_death(philo->sim))
 	{
 		if (flag == DIE)
 		{
@@ -35,4 +35,21 @@ void	print_action(t_philo *philo, int flag, char *action)
 		printf(action, get_sim_time(philo->sim), philo->id + 1);
 	}
 	pthread_mutex_unlock(&philo->sim->action_flag);
+}
+
+unsigned int	get_sim_time(t_simulation *sim)
+{
+	return (get_current_time() - sim->t_start);
+}
+
+int	check_death(t_simulation *sim)
+{
+	int	is_n_death;
+
+	is_n_death = 1;
+	pthread_mutex_lock(&sim->check_flag);
+	if (sim->flag_death == 1)
+		is_n_death = 0;
+	pthread_mutex_unlock(&sim->check_flag);
+	return (is_n_death);
 }

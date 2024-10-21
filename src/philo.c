@@ -12,7 +12,7 @@
 
 #include "../inc/philo.h"
 
-int	init_simultion(t_simulation *sim)
+int	init_simulation(t_simulation *sim)
 {
 	int	i;
 
@@ -69,6 +69,7 @@ int	main(int ac, char **av)
 	ft_bzero(&sim, sizeof(sim));
 	if (parse(ac, av, &sim) == -1)
 		return (print_error(INV_ARGS, 2));
+	printf("here\n");
 	init_simulation(&sim);
 	return (0);
 }

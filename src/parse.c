@@ -82,9 +82,9 @@ int	parse(int ac, char **av, t_simulation *sim)
 	sim->t_death = data[1];
 	sim->t_eat = data[2];
 	sim->t_sleep = data[3];
-	sim->n_eat = -1;
+	sim->n_meals = -1;
 	if (ac == 6)
-		sim->n_eat = data[4];
+		sim->n_meals = data[4];
 	free(data);
 	return (SUCCESS);
 }

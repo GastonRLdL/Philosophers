@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   program_utils.c                                    :+:      :+:    :+:   */
+/*   simulation_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/07 04:30:09 by gasroman          #+#    #+#             */
-/*   Updated: 2024/10/19 19:29:35 by gasroman         ###   ########.fr       */
+/*   Created: 2024/10/21 17:34:04 by gasroman          #+#    #+#             */
+/*   Updated: 2024/10/21 17:39:21 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	*routine(void *data)
 	philo = data;
 	pthread_mutex_lock(&philo->sim->action_flag);
 	pthread_mutex_unlock(&philo->sim->action_flag);
-	if (chech_death(philo->sim) && philo->n_meals != philo->sim->n_meals)
+	if (check_death(philo->sim) && philo->n_meals != philo->sim->n_meals)
 		usleep((philo->sim->t_eat -1) * 1000);
 	while (check_death(philo->sim) && philo->n_meals != philo->sim->n_meals)
 	{
@@ -71,5 +71,5 @@ void	*routine(void *data)
 			ft_think(philo);
 		}
 	}
-	retun (0);
+	return (0);
 }

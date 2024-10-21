@@ -19,7 +19,7 @@ FLAGS = -Wall -Wextra -Werror -g -pthread
 
 # =========================== SOURCES ======================================== #
 SRC_PATH = src/
-SRC = philo.c parse.c utils.c
+SRC = philo.c parse.c simulation_utils.c general_utils.c parse_utils.c
 INC =	-I ./inc/
 
 # =========================== DIRECTORIES ==================================== #

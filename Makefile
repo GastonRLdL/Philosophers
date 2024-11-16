@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 15:36:09 by gasroman          #+#    #+#              #
-#    Updated: 2024/11/16 19:51:47 by gasroman         ###   ########.fr        #
+#    Updated: 2024/11/16 20:11:23 by gasroman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ NAME = philo
 CC = cc
 RM = rm -rf
 MAKE = make --no-print-directory
-FLAGS = -Wall -Wextra -Werror -g -pthread
+FLAGS = -Wall -Wextra -Werror -O2 -g -pthread #-fsanitize=thread
 
 # =========================== SOURCES ======================================== #
 SRC_PATH = src/

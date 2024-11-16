@@ -6,7 +6,7 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:16:20 by gasroman          #+#    #+#             */
-/*   Updated: 2024/11/16 19:52:12 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/11/16 20:04:09 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,6 @@ int	parse(int ac, char **av, t_simulation *sim)
 	sim->n_meals = -1;
 	sim->flag_death = 0;
 	if (ac == 6)
-		sim->n_meals = data[4];
 		sim->n_meals = data[4];
 	free(data);
 	return (SUCCESS);

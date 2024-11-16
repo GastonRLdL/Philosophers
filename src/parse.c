@@ -6,7 +6,7 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/16 16:16:20 by gasroman          #+#    #+#             */
-/*   Updated: 2024/08/08 16:18:11 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/11/15 20:15:38 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,16 +75,19 @@ int	parse(int ac, char **av, t_simulation *sim)
 	data = malloc(ac * sizeof(int));
 	if (!data)
 		return (ERROR);
-	i = -1;
+	i = 0;
 	while (++i < ac)
-		data[i] = ft_atoi(av[i + 1]);
+		data[i - 1] = ft_atoi(av[i]);
+	if (data[0] == 0)
+		return (ERROR);
 	sim->n_philo = data[0];
 	sim->t_death = data[1];
 	sim->t_eat = data[2];
 	sim->t_sleep = data[3];
-	sim->n_eat = -1;
+	sim->n_meals = -1;
+	sim->flag_death = 0;
 	if (ac == 6)
-		sim->n_eat = data[4];
+		sim->n_meals = data[4];
 	free(data);
 	return (SUCCESS);
 }

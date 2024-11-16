@@ -6,7 +6,7 @@
 #    By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/07/15 15:36:09 by gasroman          #+#    #+#              #
-#    Updated: 2024/07/17 17:19:42 by gasroman         ###   ########.fr        #
+#    Updated: 2024/11/16 19:34:31 by gasroman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ FLAGS = -Wall -Wextra -Werror -g -pthread
 
 # =========================== SOURCES ======================================== #
 SRC_PATH = src/
-SRC = philo.c parse.c utils.c
+SRC = philo.c parse.c routine.c general_utils.c parse_utils.c
 INC =	-I ./inc/
 
 # =========================== DIRECTORIES ==================================== #

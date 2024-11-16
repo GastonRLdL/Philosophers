@@ -6,7 +6,7 @@
 /*   By: gasroman <gasroman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/15 15:34:39 by gasroman          #+#    #+#             */
-/*   Updated: 2024/11/15 20:15:02 by gasroman         ###   ########.fr       */
+/*   Updated: 2024/11/16 19:51:54 by gasroman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <errno.h>
 # include <unistd.h>
+# include <stdlib.h>
 # include <stdlib.h>
 # include <pthread.h>
 # include <sys/time.h>
@@ -32,6 +33,11 @@
 # define WRONG_ARGS	"Invalid number of arguments"
 # define INV_ARGS	"Invalid arguments"
 
+# define ACT_FORK	"%d has taken a fork\n"
+# define ACT_EAT	"%d is eating\n"
+# define ACT_SLEEP	"%d is sleeping\n"
+# define ACT_THINK	"%d is thinking\n"
+# define ACT_DIE	"%d died\n"
 # define ACT_FORK	"%d has taken a fork\n"
 # define ACT_EAT	"%d is eating\n"
 # define ACT_SLEEP	"%d is sleeping\n"
@@ -52,6 +58,8 @@ typedef struct s_philo
 	pthread_mutex_t		last_meal_flag;
 	pthread_mutex_t		fork1;
 	pthread_mutex_t		*fork2;
+	pthread_mutex_t		fork1;
+	pthread_mutex_t		*fork2;
 	pthread_t			philo;
 	int					id;
 	int					t_meals;
@@ -65,11 +73,14 @@ typedef struct s_simulation
 	pthread_mutex_t	check_flag;
 	t_philo			*philo;
 	int				flag_death;
+	int				flag_death;
 	unsigned int	t_start;
+	int				n_philo;
 	int				n_philo;
 	size_t			t_death;
 	size_t			t_eat;
 	size_t			t_sleep;
+	int				n_meals;
 	int				n_meals;
 }	t_simulation;
 
@@ -81,7 +92,14 @@ void			destroy_mutex(t_simulation *sim);
 
 /***********parse************/
 int				parse(int ac, char **av, t_simulation *sim);
+int				parse(int ac, char **av, t_simulation *sim);
 
+/*******parse_utils********/
+size_t			ft_strlen(const char *s);
+int				ft_strncmp(const char *s1, const char *s2, size_t n);
+int				ft_isdigit(int c);
+int				ft_atoi(const char *str);
+void			ft_bzero(void *s, size_t n);
 /*******parse_utils********/
 size_t			ft_strlen(const char *s);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
@@ -103,3 +121,4 @@ unsigned int	get_sim_time(t_simulation *sim);
 int				check_death(t_simulation *sim);
 
 #endif
+
